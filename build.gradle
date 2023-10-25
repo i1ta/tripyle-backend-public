@@ -1,0 +1,54 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.7'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.tripyle'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-batch'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+//	Spring Security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+//	lombok
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+//	DB connection
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+//	Swagger
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
+//	JWT
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+//  AWS
+	implementation 'io.awspring.cloud:spring-cloud-starter-aws:2.3.5'
+
+//	RestTemplate & relevant functions
+	implementation 'org.apache.commons:commons-lang3:3.8.1'
+	implementation 'org.apache.commons:commons-text:1.8'
+	implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
